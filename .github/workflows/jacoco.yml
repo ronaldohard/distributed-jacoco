@@ -54,14 +54,11 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: integration-tests-jacoco
-          path: target/jacoco-slow-it.exec
+          path: target/
       - uses: actions/download-artifact@v2
         with:
           name: unit-tests-jacoco
-          path: target/jacoco-fast.exec
-      - name: extract artifacts
-        run: |
-          ls -la -R
+          path: target/
       - name: merge results
         run: |
           mvn jacoco:merge jacoco:report verify -DskipTests=true
@@ -70,3 +67,4 @@ jobs:
         with:
           name: coverage-results-report
           path: target/site/jacoco/
+          if-no-files-found: error
