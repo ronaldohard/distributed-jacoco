@@ -21,7 +21,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: unit-tests-jacoco
-          path: target/jacoco-fast.exec
+          path: exportJacoco/jacoco-fast.exec
 
   integration-tests:
     name: Integration Tests
@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: integration-tests-jacoco
-          path: target/jacoco-slow-it.exec
+          path: exportJacoco/jacoco-slow-it.exec
 
   merge-jacoco-report:
     name: Jacoco Merge Results
