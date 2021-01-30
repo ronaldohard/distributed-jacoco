@@ -61,7 +61,8 @@ jobs:
           path: target/
       - name: merge results
         run: |
-          mvn jacoco:merge jacoco:report verify -DskipTests=true
+          mvn jacoco:merge verify -DskipTests=true jacoco:report
+          ls -la -R target/
       - name: Upload jacoco coverage
         uses: actions/upload-artifact@v2
         with:
