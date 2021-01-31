@@ -6,6 +6,8 @@ interface Funny {
 
 class BigClass : Funny {
     override fun haveFun() = "big"
+
+    fun extraFun() = "no fun at all"
 }
 
 class SmallClass : Funny {

@@ -17,7 +17,7 @@ mkdir target/
 # download Github Artifacts ;)
 cp exportJacoco/*.exec target/
 
-mvn jacoco:merge verify -DskipTests=true jacoco:report
+mvn jacoco:merge package jacoco:report verify -DskipTests=true
 
 # satisfactory observations...
 open target/site/jacoco/index.html

@@ -61,9 +61,9 @@ jobs:
           path: target/
       - name: merge results
         run: |
-          mvn jacoco:merge verify -DskipTests=true jacoco:report
-          ls -la -R target/
-      - name: Upload jacoco coverage
+          mvn jacoco:merge package jacoco:report verify -DskipTests=true
+      - name: Upload jacoco coverage despite the check result
+        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: coverage-results-report
